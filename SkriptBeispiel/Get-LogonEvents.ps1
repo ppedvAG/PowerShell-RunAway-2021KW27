@@ -1,10 +1,25 @@
-﻿[cmdletBinding(PositionalBinding=$false)] #PositionalBinding schaltet für dieses Skript die Standard Positionzuweisung zu Parameter aus. Ermöglicht aber weiterhin die manuelle Zuweisung
+﻿<#
+.Synopsis
+   Kurzbeschreibung des Skriptes
+.DESCRIPTION
+   Lange Beschreibung des Skriptes
+.PARAMETER EventID
+   Gibt an welche EventID abgefragt werden soll. 4624 | 4634 | 4625 wären mögliche Werte
+.EXAMPLE
+   Beispiel für die Verwendung dieses Cmdlets
+.EXAMPLE
+   Ein weiteres Beispiel für die Verwendung dieses Cmdlets
+#>
+[cmdletBinding(PositionalBinding=$false)] #PositionalBinding schaltet für dieses Skript die Standard Positionzuweisung zu Parameter aus. Ermöglicht aber weiterhin die manuelle Zuweisung
 param(
 #ValidateScript ermöglich custom Validierungen
 [ValidateScript({Test-NetConnection -ComputerName $PSItem -CommonTCPPort WINRM -InformationLevel Quiet})]
 [string]$ComputerName = "localhost" ,
 
-[Parameter(Mandatory=$true, Position=0)] #Mandatory = $true erzeugt einen Pflichtparameter , Position = 0 weißt dem Parameter die Standard Position 0 zu 
+#Mandatory = $true | erzeugt einen Pflichtparameter, 
+#Position = 0 | weißt dem Parameter die Standard Position 0 zu,
+#HelpMessage |  Zeigt Hilfe an für Mandatory = $true
+[Parameter(Mandatory=$true, Position=0,HelpMessage="Eingabe der ID: 4624 für Anmeldung")] 
 [ValidateSet(4624,4625,4634)] #ValidateSet lässt nur angegebene Werte zu
 [int]$EventId ,
 
