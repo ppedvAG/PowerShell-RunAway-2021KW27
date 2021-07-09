@@ -1,4 +1,4 @@
-#Übungsaufgabe
+# Übungsaufgabe
 
 Erstellen Sie ein Skript welches ein Verzeichnis mit TestFiles anlegt. Nach dem Schema von C:\TestFiles welches Sie auf dem Server1 (DC) finden.
 Die verschiedenen Entwicklungsschritte sollten Sie am besten mit GIT mitprotokollieren, die Parameter sollten validiert sein. Ebenso soll das 
