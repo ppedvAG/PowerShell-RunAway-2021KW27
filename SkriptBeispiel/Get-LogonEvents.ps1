@@ -31,6 +31,10 @@ param(
 [string]$Filepath = "nopath"
 )
 #Abragen und vorfiltern der Daten 
+
+#Anhalten des Skriptes zum debuggen
+Write-Debug -Message "Vor Abfrage der EventId"
+
 $Data = Get-EventLog -LogName Security -ComputerName $ComputerName | Where-Object -FilterScript {$PSItem.EventID -eq $EventId} | Select-Object -First $Newest
 
 
